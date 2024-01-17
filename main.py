@@ -85,3 +85,8 @@ whisper = AzureOpenAI(
     azure_deployment="whisper",
     api_version="2023-09-01-preview",
 )
+
+# user_input = input("What do you know about Pub Quizzes")
+user_input = input("Bitte Frage eingeben / Please enter your question: ")
+
+agent.invoke({"input": user_input})
