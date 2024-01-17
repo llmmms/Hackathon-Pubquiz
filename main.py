@@ -4,7 +4,7 @@ from langchain.agents import initialize_agent, AgentType
 from langchain.embeddings.azure_openai import AzureOpenAIEmbeddings
 from langchain.tools import Tool
 from langchain.vectorstores.chroma import Chroma
-from tools import wiki_tool, wolframalpha_tool, ddg_tool
+from tools import wiki_tool, wolframalpha_tool, ddg_tool, db_tool
 
 from openai import AzureOpenAI
 
@@ -44,7 +44,7 @@ qa_tool = Tool.from_function(
 
 PREFIX = """You are participating in a pubquiz. Answer in a short sentence."""
 agent = initialize_agent(
-    tools=[qa_tool, wiki_tool, ddg_tool, wolframalpha_tool],
+    tools=[qa_tool, wiki_tool, ddg_tool, wolframalpha_tool, db_tool],
     llm=llm,
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     verbose=True,
