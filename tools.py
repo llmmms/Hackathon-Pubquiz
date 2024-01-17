@@ -21,7 +21,7 @@ ddg_tool = Tool.from_function(
 wiki_tool = Tool.from_function(
     func = wiki.run,
     name = "Wikipedia Query",
-    description = "Query Wikipedia for answer."
+    description = "Search Wikipedia for queries on factual knowledge."
 )
 
 wolframalpha_tool = Tool.from_function(
