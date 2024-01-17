@@ -15,7 +15,7 @@ wolfram = WolframAlphaAPIWrapper()
 ddg_tool = Tool.from_function(
     func = ddg.run,
     name = "DuckDuckGo Search",
-    description = "Search DuckDuckGo for a query abount current events.",
+    description = "Search DuckDuckGo for a query about current events.",
 )
 
 wiki_tool = Tool.from_function(
