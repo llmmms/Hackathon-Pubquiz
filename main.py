@@ -2,6 +2,7 @@ import os
 from langchain.chat_models import AzureChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 from langchain.embeddings.azure_openai import AzureOpenAIEmbeddings
+from langchain.prompts import ChatPromptTemplate
 from langchain.tools import Tool
 from langchain.vectorstores.chroma import Chroma
 from tools import wiki_tool, wolframalpha_tool, ddg_tool
@@ -54,6 +55,19 @@ agent = initialize_agent(
         'prefix': PREFIX
     }
 )
+
+with open("PubTexts/TypischeFragen.txt") as f:
+    example_questions = f.read()
+
+intent_prompt = ChatPromptTemplate.from_template(
+"""
+Consider the following examples:
+"""
++ example_questions
++ """Now give a short answer the following Question.
+Question: {input}""")
+
+intent_chain = intent_prompt | llm
 
 # user_input = input("What do you know about Pub Quizzes")
 user_input = input("Bitte Frage eingeben / Please enter your question: ")
