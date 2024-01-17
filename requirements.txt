@@ -7,3 +7,4 @@ duckduckgo-search==4.1.1
 numexpr==2.8.8
 wikipedia==1.4.0
 wolframalpha==5.0.0
+google-api-python-client==2.100.0

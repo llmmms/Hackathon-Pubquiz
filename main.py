@@ -5,7 +5,7 @@ from langchain.embeddings.azure_openai import AzureOpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
 from langchain.tools import Tool
 from langchain.vectorstores.chroma import Chroma
-from tools import wiki_tool, wolframalpha_tool, ddg_tool, db_tool
+from tools import wiki_tool, wolframalpha_tool, ddg_tool, db_tool, google_tool
 
 from openai import AzureOpenAI
 
@@ -45,7 +45,7 @@ qa_tool = Tool.from_function(
 
 PREFIX = """You are participating in a pubquiz. Answer in a short sentence."""
 agent = initialize_agent(
-    tools=[qa_tool, wiki_tool, ddg_tool, wolframalpha_tool, db_tool],
+    tools=[qa_tool, wiki_tool, ddg_tool, wolframalpha_tool, db_tool, google_tool],
     llm=llm,
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     verbose=True,
@@ -86,7 +86,9 @@ whisper = AzureOpenAI(
     api_version="2023-09-01-preview",
 )
 
-# user_input = input("What do you know about Pub Quizzes")
-user_input = input("Bitte Frage eingeben / Please enter your question: ")
+while True:
+    # user_input = input("What do you know about Pub Quizzes")
+    user_input = input("Bitte Frage eingeben / Please enter your question: ")
 
-agent.invoke({"input": user_input})
+    agent.invoke({"input": user_input})
+    

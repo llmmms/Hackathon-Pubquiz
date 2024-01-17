@@ -24,6 +24,6 @@ retriever = db.as_retriever()
 retrieval_chain = create_retrieval_chain(retriever, document_chain)
 
 def invoke_db(prompt: str):
-    result = retrieval_chain.invoke(prompt)
+    result = retrieval_chain.invoke({"input": prompt})
     print(result)
     return result['answer']
