@@ -33,6 +33,6 @@ wolframalpha_tool = Tool.from_function(
 
 db_tool = Tool.from_function(
     func = invoke_db,
-    name = "Database Retrieval"
+    name = "Database Retrieval",
     description = "Use Database Retrieval for factual knowledge before all other tools. Do not use it for querying calculations!"
 )
