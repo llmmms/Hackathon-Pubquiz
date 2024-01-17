@@ -57,7 +57,7 @@ agent = initialize_agent(
 # user_input = input("What do you know about Pub Quizzes")
 user_input = input("Bitte Frage eingeben / Please enter your question: ")
 
-agent.invoke(user_input)
+agent.invoke({"input": user_input})
 
 # whisper
 
